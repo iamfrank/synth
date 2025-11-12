@@ -27,7 +27,6 @@ function keydownHandler(event) {
   const freq = keyToneMapper(event.code);
   if (freq) {
     startTone(event.code, freq);
-    console.log("hit button", event.code);
     document
       .querySelector(`[data-keycode="${event.code}"]`)
       .classList.add("active");

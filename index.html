@@ -5,7 +5,16 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <section>
+    <section id="controls">
+      <label for="osctype">Waveform</label>
+      <select id="osctype">
+        <option value="sine">Sine</option>
+        <option value="square">Square</option>
+        <option value="sawtooth">Sawtooth</option>
+        <option value="triangle" selected>Triangle</option>
+      </select>
+    </section>
+    <section id="keyboard">
       <button id="tA3" title="A" data-keycode="KeyA">a</button>
       <button id="tB3" title="B" data-keycode="KeyS">s</button>
       <button id="tC4" title="C" data-keycode="KeyD">d</button>
@@ -16,66 +25,6 @@
       <button id="tA4" title="A" data-keycode="KeyK">k</button>
     </section>
 
-    <script type="module">
-      import {
-        keydownHandler,
-        keyupHandler,
-        pointerdownHandler,
-        pointerupHandler,
-      } from "./js/events.js";
-
-      document.addEventListener("keydown", keydownHandler);
-      document.addEventListener("keyup", keyupHandler);
-
-      document
-        .getElementById("tA3")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tB3")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tC4")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tD4")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tE4")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tF4")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tG4")
-        .addEventListener("pointerdown", pointerdownHandler);
-      document
-        .getElementById("tA4")
-        .addEventListener("pointerdown", pointerdownHandler);
-
-      document
-        .getElementById("tA3")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tB3")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tC4")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tD4")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tE4")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tF4")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tG4")
-        .addEventListener("pointerup", pointerupHandler);
-      document
-        .getElementById("tA4")
-        .addEventListener("pointerup", pointerupHandler);
-    </script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

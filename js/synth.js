@@ -1,3 +1,5 @@
+import { getOscType } from "./controls.js";
+
 const audioCtx = new AudioContext();
 const keyMap = new Map();
 
@@ -24,7 +26,7 @@ function playSound(freq) {
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
 
-  osc.type = "square";
+  osc.type = getOscType();
   osc.frequency.value = freq;
 
   gain.gain.setValueAtTime(0, audioCtx.currentTime);
