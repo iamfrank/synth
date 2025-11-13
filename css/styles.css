@@ -46,6 +46,7 @@ section#keyboard {
     border: solid 1px #c6c;
     text-transform: uppercase;
     font-weight: 600;
+    cursor: pointer;
 
     &:first-child {
       border-radius: 0.75rem 0 0.75rem 0.75rem;

@@ -27,11 +27,17 @@ function keyToneMapper(keycode) {
 
 function attachHandlers(id) {
   const element = document.getElementById(id);
-  element.addEventListener("pointerdown", pointerdownHandler);
-  element.addEventListener("pointerup", pointerupHandler);
-  element.addEventListener("pointercancel", pointerupHandler);
-  element.addEventListener("pointerout", pointerupHandler);
-  element.addEventListener("pointerleave", pointerupHandler);
+  element.addEventListener("pointerdown", pointerdownHandler, {
+    passive: false,
+  });
+  element.addEventListener("pointerup", pointerupHandler, { passive: false });
+  element.addEventListener("pointercancel", pointerupHandler, {
+    passive: false,
+  });
+  element.addEventListener("pointerout", pointerupHandler, { passive: false });
+  element.addEventListener("pointerleave", pointerupHandler, {
+    passive: false,
+  });
 }
 
 function keydownHandler(event) {
