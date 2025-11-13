@@ -1,4 +1,4 @@
-# synth
+# SYNTH
 
 A tiny synth made with love and Web Audio API.
 

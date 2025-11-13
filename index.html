@@ -6,13 +6,57 @@
   </head>
   <body>
     <section id="controls">
-      <label for="osctype">Waveform</label>
-      <select id="osctype">
-        <option value="sine">Sine</option>
-        <option value="square">Square</option>
-        <option value="sawtooth">Sawtooth</option>
-        <option value="triangle" selected>Triangle</option>
-      </select>
+      <fieldset>
+        <label for="vol">Master volume</label>
+        <input type="range" id="vol" max="2" min="0" value="1" step="0.01" />
+      </fieldset>
+      <fieldset>
+        <label for="attack">Attack</label>
+        <input
+          type="range"
+          id="attack"
+          max="1"
+          min="0.01"
+          value="0.1"
+          step="0.01"
+        />
+        <label for="decay">Decay</label>
+        <input
+          type="range"
+          id="decay"
+          max="1"
+          min="0.01"
+          value="0.1"
+          step="0.01"
+        />
+        <label for="sustain">Sustain</label>
+        <input
+          type="range"
+          id="sustain"
+          max="1"
+          min="0.1"
+          value="0.8"
+          step="0.1"
+        />
+        <label for="release">Release</label>
+        <input
+          type="range"
+          id="release"
+          max="10"
+          min="0.01"
+          value="1"
+          step="0.01"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="osctype">Waveform</label>
+        <select id="osctype">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle" selected>Triangle</option>
+        </select>
+      </fieldset>
     </section>
     <section id="keyboard">
       <button id="tA3" title="A" data-keycode="KeyA">a</button>

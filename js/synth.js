@@ -1,4 +1,11 @@
-import { getOscType } from "./controls.js";
+import {
+  getOscType,
+  getRelease,
+  getVolume,
+  getAttack,
+  getSustain,
+  getDecay,
+} from "./controls.js";
 
 const audioCtx = new AudioContext();
 const keyMap = new Map();
@@ -13,8 +20,9 @@ function startTone(keycode, freq) {
 function endTone(keycode) {
   const { osc, gain } = keyMap.get(keycode);
   if (osc) {
-    gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1); // Release
-    osc.stop(audioCtx.currentTime + 1);
+    const release = getRelease();
+    gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + release); // Release
+    osc.stop(audioCtx.currentTime + release);
   }
   keyMap.delete(keycode);
 }
@@ -25,12 +33,17 @@ function playSound(freq) {
   }
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
+  const volume = getVolume();
+  const attack = getAttack();
+  const decay = getDecay() + attack;
+  const sustain = getVolume() * getSustain();
 
   osc.type = getOscType();
   osc.frequency.value = freq;
 
   gain.gain.setValueAtTime(0, audioCtx.currentTime);
-  gain.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.1); // Attack
+  gain.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + attack); // Attack
+  gain.gain.linearRampToValueAtTime(sustain, audioCtx.currentTime + decay); // Decay to sustain level
 
   osc.connect(gain).connect(audioCtx.destination);
   osc.start();
