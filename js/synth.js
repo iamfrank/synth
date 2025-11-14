@@ -9,6 +9,8 @@ import {
 
 const audioCtx = new AudioContext();
 const keyMap = new Map();
+const feedForward = [0.00020298, 0.0004059599, 0.00020298];
+const feedBack = [1.0126964558, -1.9991880801, 0.9873035442];
 
 function startTone(keycode, freq) {
   const osc = keyMap.get(keycode);
@@ -32,6 +34,7 @@ function playSound(freq) {
     return;
   }
   const osc = audioCtx.createOscillator();
+  const iirFilter = audioCtx.createIIRFilter(feedForward, feedBack);
   const gain = audioCtx.createGain();
   const volume = getVolume();
   const attack = getAttack();
@@ -45,7 +48,7 @@ function playSound(freq) {
   gain.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + attack); // Attack
   gain.gain.linearRampToValueAtTime(sustain, audioCtx.currentTime + decay); // Decay to sustain level
 
-  osc.connect(gain).connect(audioCtx.destination);
+  osc.connect(gain).connect(iirFilter).connect(audioCtx.destination);
   osc.start();
   return { osc, gain };
 }

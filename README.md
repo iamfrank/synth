@@ -2,14 +2,17 @@
 
 A tiny synth made with love and Web Audio API.
 
-Check it out at https://iamfrank.github.io/synth/ !
+Check it out at [iamfrank.github.io/synth/](https://iamfrank.github.io/synth/) !
 
 ## Links
 
+* [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 * [List of key frequencies on Wikipedia](https://en.wikipedia.org/wiki/Piano_key_frequencies)
+* [ADSR Envelope on Wikipedia](https://en.wikipedia.org/wiki/Envelope_(music))
 
-## More features
+## Idease for more features
 
+* Loop device and sampling
 * Filters
   BiquadFilterNode for tone shaping (low-pass, high-pass, etc.).
 * LFO (Low Frequency Oscillator) (optional for modulation)
@@ -18,4 +21,7 @@ Check it out at https://iamfrank.github.io/synth/ !
 * Preset system: Save and recall synth settings (in localStorage).
 * Visualization: Real-time waveform or spectrum via AnalyserNode + <canvas>.
 * MIDI Input: Use the Web MIDI API to connect physical keyboards.
-* Loop device and sampling
+
+## Acknowledgements
+
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API had been a great resource for learning how to use Web Audio API. Thanks, Mozilla!
