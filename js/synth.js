@@ -13,18 +13,18 @@ const feedForward = [0.00020298, 0.0004059599, 0.00020298];
 const feedBack = [1.0126964558, -1.9991880801, 0.9873035442];
 
 function startTone(keycode, freq) {
-  const osc = keyMap.get(keycode);
-  if (!osc) {
+  const cache = keyMap.get(keycode);
+  if (!cache) {
     keyMap.set(keycode, playSound(freq));
   }
 }
 
 function endTone(keycode) {
-  const { osc, gain } = keyMap.get(keycode);
-  if (osc) {
+  const cache = keyMap.get(keycode);
+  if (cache) {
     const release = getRelease();
-    gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + release); // Release
-    osc.stop(audioCtx.currentTime + release);
+    cache.gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + release); // Release
+    cache.osc.stop(audioCtx.currentTime + release);
   }
   keyMap.delete(keycode);
 }

@@ -8,6 +8,7 @@ Check it out at [iamfrank.github.io/synth/](https://iamfrank.github.io/synth/) !
 
 * [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 * [List of key frequencies on Wikipedia](https://en.wikipedia.org/wiki/Piano_key_frequencies)
+* [synthityourself.com/](https://synthityourself.com/)
 * [ADSR Envelope on Wikipedia](https://en.wikipedia.org/wiki/Envelope_(music))
 
 ## Idease for more features
