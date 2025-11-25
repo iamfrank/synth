@@ -50,10 +50,11 @@ section#keyboard {
   margin: 0 2rem 2rem;
   display: flex;
   flex-flow: row nowrap;
+  position: relative;
 
   & button {
     height: 20rem;
-    width: 12.5%;
+    width: calc(100% / 7);
     background-color: #fff;
     color: #000;
     border: none;
@@ -62,6 +63,15 @@ section#keyboard {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
+
+    &.black {
+      background-color: #000;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      height: 15rem;
+      width: 9%;
+    }
 
     &:first-child {
       border-radius: 0.75rem 0 0.75rem 0.75rem;
@@ -77,5 +87,22 @@ section#keyboard {
   & button.active,
   & button:active {
     background-color: var(--accent);
+    color: #000;
+  }
+
+  #tCsharp4 {
+    left: 9.75%;
+  }
+  #tDsharp4 {
+    left: 24%;
+  }
+  #tFsharp4 {
+    left: 52.75%;
+  }
+  #tGsharp4 {
+    left: 67%;
+  }
+  #tAsharp4 {
+    left: 81.5%;
   }
 }

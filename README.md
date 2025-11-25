@@ -25,4 +25,4 @@ Check it out at [iamfrank.github.io/synth/](https://iamfrank.github.io/synth/) !
 
 ## Acknowledgements
 
-https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API had been a great resource for learning how to use Web Audio API. Thanks, Mozilla!
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API has been a great resource for learning how to use Web Audio API. Thanks, Mozilla!

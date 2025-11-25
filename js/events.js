@@ -1,25 +1,31 @@
 import { startTone, endTone } from "./synth.js";
 
-const eventCache = [];
-
 function keyToneMapper(keycode) {
   switch (keycode) {
-    case "KeyA":
-      return 220;
     case "KeyS":
-      return 246.9;
+      return 262;
+    case "KeyE":
+      return 277;
     case "KeyD":
-      return 261.6;
+      return 294;
+    case "KeyR":
+      return 311;
     case "KeyF":
-      return 293.7;
+      return 330;
     case "KeyG":
-      return 329.6;
+      return 349;
+    case "KeyY":
+      return 370;
     case "KeyH":
-      return 349.2;
-    case "KeyJ":
       return 392;
-    case "KeyK":
+    case "KeyU":
+      return 415;
+    case "KeyJ":
       return 440;
+    case "KeyI":
+      return 466;
+    case "KeyK":
+      return 494;
     default:
       return false;
   }
