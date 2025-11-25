@@ -5,6 +5,8 @@ import {
   getAttack,
   getSustain,
   getDecay,
+  getTremoloFreq,
+  getTremoloGain,
 } from "./controls.js";
 
 const audioCtx = new AudioContext();
@@ -40,6 +42,8 @@ function playSound(freq) {
   const attack = getAttack();
   const decay = getDecay() + attack;
   const sustain = getVolume() * getSustain();
+  const tremolofreq = getTremoloFreq();
+  const tremologain = getTremoloGain();
 
   osc.type = getOscType();
   osc.frequency.value = freq;
@@ -48,7 +52,25 @@ function playSound(freq) {
   gain.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + attack); // Attack
   gain.gain.linearRampToValueAtTime(sustain, audioCtx.currentTime + decay); // Decay to sustain level
 
-  osc.connect(gain).connect(iirFilter).connect(audioCtx.destination);
+  if (tremolofreq > 0 || tremologain > 0) {
+    const lfo = audioCtx.createOscillator();
+    lfo.type = "sine";
+    lfo.frequency.value = tremolofreq;
+
+    const lfoGain = audioCtx.createGain();
+    lfoGain.gain.value = tremologain;
+
+    // Correct LFO routing: connect LFO → gain.gain
+    lfo.connect(lfoGain);
+    lfoGain.connect(gain.gain);
+
+    lfo.start();
+  }
+
+  osc.connect(gain);
+  gain.connect(iirFilter);
+  iirFilter.connect(audioCtx.destination);
+
   osc.start();
   return { osc, gain };
 }

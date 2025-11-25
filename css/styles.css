@@ -1,6 +1,8 @@
 :root {
-  --color: hsl(300, 50%, 50%);
-  --color-transparent: hsla(300, 100%, 50%, 0.3);
+  --base-color: 300;
+  --color: hsl(var(--base-color), 70%, 30%);
+  --color-transparent: hsla(var(--base-color), 100%, 50%, 0.2);
+  --accent: hsl(135, 100%, 50%);
 }
 
 * {
@@ -9,14 +11,17 @@
 
 body {
   font-family: monospace;
-  background: linear-gradient(#212, #101);
+  background: linear-gradient(
+    hsl(var(--base-color), 70%, 7%),
+    hsl(var(--base-color), 70%, 5%)
+  );
   color: #fff;
   padding: 0;
   margin: 0;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  accent-color: #3aa;
+  accent-color: var(--accent);
   touch-action: none;
 }
 
@@ -27,12 +32,12 @@ section#controls {
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto;
   gap: 0.5rem;
-  outline: inset 0.25rem var(--color-transparent);
+  outline: inset 3px var(--color-transparent);
   border-radius: 1rem;
 }
 
 fieldset {
-  border: solid 2px var(--color);
+  border: solid 3px var(--color);
   border-radius: 0.75rem;
   padding: 1rem;
 }
@@ -53,7 +58,7 @@ section#keyboard {
     color: #000;
     border: none;
     border-radius: 0 0 0.75rem 0.75rem;
-    border: solid 1px var(--color);
+    border-left: solid 1px var(--color);
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
@@ -66,8 +71,11 @@ section#keyboard {
       border-radius: 0 0.75rem 0.75rem 0.75rem;
     }
   }
+  & button:first-child {
+    border: none;
+  }
   & button.active,
   & button:active {
-    background-color: var(--color);
+    background-color: var(--accent);
   }
 }

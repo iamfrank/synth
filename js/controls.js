@@ -22,4 +22,21 @@ function getRelease() {
   return Number(document.getElementById("release").value);
 }
 
-export { getOscType, getVolume, getAttack, getDecay, getSustain, getRelease };
+function getTremoloFreq() {
+  return Number(document.getElementById("tremfreq").value);
+}
+
+function getTremoloGain() {
+  return Number(document.getElementById("tremgain").value);
+}
+
+export {
+  getOscType,
+  getVolume,
+  getAttack,
+  getDecay,
+  getSustain,
+  getRelease,
+  getTremoloFreq,
+  getTremoloGain,
+};
