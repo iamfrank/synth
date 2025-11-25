@@ -67,7 +67,6 @@ function keyupHandler(event) {
 }
 
 function pointerdownHandler(event) {
-  console.log("pointerdown", event.target.id);
   const freq = keyToneMapper(event.target.dataset.keycode);
   if (freq) {
     startTone(event.target.dataset.keycode, freq);
@@ -75,7 +74,6 @@ function pointerdownHandler(event) {
 }
 
 function pointerupHandler(event) {
-  console.log("pointerup", event.target.id);
   const freq = keyToneMapper(event.target.dataset.keycode);
   if (freq) {
     endTone(event.target.dataset.keycode);
