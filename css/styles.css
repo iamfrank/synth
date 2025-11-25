@@ -1,3 +1,12 @@
+:root {
+  --color: hsl(300, 50%, 50%);
+  --color-transparent: hsla(300, 100%, 50%, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: monospace;
   background: linear-gradient(#212, #101);
@@ -6,6 +15,7 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   accent-color: #3aa;
   touch-action: none;
 }
@@ -17,14 +27,14 @@ section#controls {
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto;
   gap: 0.5rem;
-  outline: inset 0.25rem hsla(300, 100%, 50%, 0.3);
+  outline: inset 0.25rem var(--color-transparent);
   border-radius: 1rem;
 }
 
 fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
+  border: solid 2px var(--color);
+  border-radius: 0.75rem;
+  padding: 1rem;
 }
 
 label {
@@ -43,7 +53,7 @@ section#keyboard {
     color: #000;
     border: none;
     border-radius: 0 0 0.75rem 0.75rem;
-    border: solid 1px #c6c;
+    border: solid 1px var(--color);
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
@@ -58,6 +68,6 @@ section#keyboard {
   }
   & button.active,
   & button:active {
-    background-color: #faf;
+    background-color: var(--color);
   }
 }

@@ -11,12 +11,13 @@
   <body>
     <section id="controls">
       <fieldset>
-        <label for="vol">Master volume</label>
+        <legend>Volume</legend>
+        <label for="vol">Master</label>
         <input type="range" id="vol" max="2" min="0" value="1" step="0.01" />
       </fieldset>
-      <input-knob value="20"></input-knob>
+      <!-- <input-knob value="50" min="-100" max="100"></input-knob> -->
       <fieldset>
-        <legend>ADSR envelope</legend>
+        <legend>Envelope</legend>
         <label for="attack">Attack</label>
         <input
           type="range"
@@ -55,7 +56,7 @@
         />
       </fieldset>
       <fieldset>
-        <label for="osctype">Waveform</label>
+        <legend>Waveform</legend>
         <select id="osctype">
           <option value="sine">Sine</option>
           <option value="square">Square</option>
