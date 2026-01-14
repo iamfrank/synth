@@ -52,26 +52,10 @@ section#keyboard {
   flex-flow: row nowrap;
   position: relative;
 
-  & button {
+  & keyboard-key {
     height: 20rem;
-    width: calc(100% / 7);
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 0 0 0.75rem 0.75rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    cursor: pointer;
+    width: calc(100% / 9);
     margin: 0 1px;
-
-    &.black {
-      background-color: #000;
-      color: #fff;
-      position: absolute;
-      top: 0;
-      height: 15rem;
-      width: 9%;
-    }
 
     &:first-child {
       border-radius: 0.75rem 0 0.75rem 0.75rem;
@@ -81,6 +65,18 @@ section#keyboard {
       border-radius: 0 0.75rem 0.75rem 0.75rem;
     }
   }
+
+  & button {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 0 0 0.75rem 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+  }
   & button:first-child {
     border: none;
   }
@@ -89,20 +85,17 @@ section#keyboard {
     background-color: var(--accent);
     color: #000;
   }
-
-  #tCsharp4 {
-    left: 9.75%;
+  & .note {
+    opacity: 0.5;
+    font-weight: 300;
+    display: block;
   }
-  #tDsharp4 {
-    left: 24%;
-  }
-  #tFsharp4 {
-    left: 52.75%;
-  }
-  #tGsharp4 {
-    left: 67%;
-  }
-  #tAsharp4 {
-    left: 81.5%;
+  & .key {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    display: block;
+    text-align: center;
   }
 }

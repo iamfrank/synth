@@ -1,21 +1,32 @@
-import { keydownHandler, keyupHandler, attachHandlers } from "./events.js";
 import { InputKnob } from "./ui/knob.js";
+import { KeyboardKey } from "./ui/key.js";
+import { toneMap } from "./data.js";
+import { startTone, endTone } from "./synth.js";
 
 // Register web components
+customElements.define("keyboard-key", KeyboardKey);
 customElements.define("input-knob", InputKnob);
 
 // Register event handlers
-document.addEventListener("keydown", keydownHandler);
-document.addEventListener("keyup", keyupHandler);
-attachHandlers("tC4");
-attachHandlers("tCsharp4");
-attachHandlers("tD4");
-attachHandlers("tDsharp4");
-attachHandlers("tE4");
-attachHandlers("tF4");
-attachHandlers("tFsharp4");
-attachHandlers("tG4");
-attachHandlers("tGsharp4");
-attachHandlers("tA4");
-attachHandlers("tAsharp4");
-attachHandlers("tB4");
+window.addEventListener("keydown", keydownHandler);
+window.addEventListener("keyup", keyupHandler);
+
+function keydownHandler(event) {
+  const freq = toneMap.get(event.code).freq;
+  if (freq) {
+    startTone(event.code, freq);
+    document
+      .querySelector(`[data-key="${event.code}"] button`)
+      .classList.add("active");
+  }
+}
+
+function keyupHandler(event) {
+  const tone = toneMap.get(event.code);
+  if (tone) {
+    endTone(event.code);
+    document
+      .querySelector(`[data-key="${event.code}"] button`)
+      .classList.remove("active");
+  }
+}
